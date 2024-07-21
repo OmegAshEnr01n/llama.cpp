@@ -68,6 +68,18 @@ Adjust the model path to a local directory that stores the models. The models ar
 
 You can also adjust the number of replicas, the device, the image, the endpoint, and the autoscaling parameters.
 
+Ensure that the ingress is enabled on your cluster. You can use the following command to enable the ingress:
+
+```shell
+microk8s enable ingress
+```
+
+And add the url to `/etc/hosts`:
+
+```shell
+demo.local      127.0.0.1
+```
+
 
 ### Metrics monitoring
 
@@ -93,6 +105,7 @@ helm install \
 - [x] Auto scaling
 - [x] CUDA support
 - [x] Downloading functionality
+- [ ] Redownload on upgrade hook. (Currently the models are downloaded only on the first deployment, there is no redownload functionality on upgrade if required)
 
 ## Pending testing
 
